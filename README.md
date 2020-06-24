@@ -4,14 +4,16 @@
   <hr>
 </p>
 
+<!-- Do we want to record a new video for this? -->
+
 # Hangman Game
 
-Today we are going to re-create the game 'Hangman' in Python!
+In this project we're aiming to re-create the game 'Hangman' in Python!
 
-It is broken down into several small functions that, when combined and
+The task broken down into several small functions that, when combined and
 completed, form a working game!
 
-We're providing the main function `start_new_game`, that just relies on your other smaller functions to work.
+We're providing the main function `start_new_game`, that relies on the functions you will write in order to work.
 
 These are the functions that you have to implement:
 
@@ -21,7 +23,7 @@ These are the functions that you have to implement:
 $ py.test tests.py -k mask_word
 ```
 
-Given a word like `'Python'`, it returns it "masked" (replacing real characters with asterisks): `'******'`
+Given a word like `'Python'`, this function will return a "masked" version of the word (replacing real characters with asterisks): `'******'`
 
 
 ### Uncover Word
@@ -30,7 +32,7 @@ Given a word like `'Python'`, it returns it "masked" (replacing real characters 
 $ py.test tests.py -k uncover_word
 ```
 
-This is probably one of the most challenging ones (it has many exceptional cases). Given an answer word (like `'Python'`) a masked word (like `'******'` or `'*y****'`) and a guessed letter (`'n'` for example) it returns a new masked word replacing the asterisks with the guessed letter **IF** the letter is present in the word to answer. Examples:
+This is probably one of the most challenging ones (it has many exceptional cases). Given the initial conditions of an answer word (like `'Python'`), a masked word (like `'******'` or `'*y****'`), and a guessed letter (`'n'` for example), the function should return a new masked word replacing the asterisks with the guessed letter in the correct position **IF** the letter is present in the answer word. For example:
 
 ```python
 _uncover_word('Python', '******', 'y')  # '*y****'  # Match
@@ -46,7 +48,7 @@ _uncover_word('Python', '*y****', 'x')  # '*y****'  # Miss
 $ py.test tests.py -k get_random_word
 ```
 
-Receives a list of words and returns one from the list randomly.
+This function will receive a list of words and returns one from the list randomly.
 
 
 ### Guess Letter
@@ -55,6 +57,6 @@ Receives a list of words and returns one from the list randomly.
 $ py.test tests.py -k guess
 ```
 
-Probably the most "important" (or "general") function. We recommend you to deal with this function **after** you've completed the other ones.
+Probably the most "important" (or "general") function. We recommend that you deal with this function **after** you've completed the other ones.
 
 It receives a `game` object and a letter to guess. It has several different scenarios. For example, the guessed word is a match or a miss, the game is won or lost, or the game was already over.
